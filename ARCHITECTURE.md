@@ -27,7 +27,7 @@ assets/club-data.js          Shared IDs, FR/AR/ZGH content, activity metadata
 src/club.jsx                React homepage and reusable header/footer/page shell
 src/language.jsx            Shared translation context and bidi-safe text
 src/motion.jsx              Accessible reveal, counter and scrolling helpers
-src/video-background.jsx    Viewport-aware, muted video and translated controls
+src/video-background.jsx    Viewport-aware, muted video without visible controls
 src/main.jsx                Hydrates the prerendered homepage
 assets/club-react.js         Generated production bundle, do not edit manually
 assets/homepage.css          Homepage-only styles, videos and timeline
@@ -63,7 +63,7 @@ White backgrounds, deep green for FOS-Agri filiation, teal for primary actions, 
 
 ## Approval and publication
 
-All pages are noindex during review. No public deployment, no external registration, no invented prices or documents. Actualities are absent until real entries are provided. Secondary pages stay empty. Contact information and future legal pages require client input. Media rights and Arabic/Amazigh translations require review before public publication.
+All pages are noindex during review. The user requested a GitHub Pages client preview and confirmed permission to publish the current photos/videos on 2026-10-12. Only generated HTML and required assets enter the Pages deployment artifact. No external registration or invented prices/documents. Actualities are absent until real entries are provided. Secondary pages stay empty. Contact information, future legal pages and Arabic/Amazigh translations still require review before a final production release.
 
 ## Commands
 

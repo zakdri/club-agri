@@ -1,5 +1,9 @@
 # Homepage update 2026-10-12
 
+## Subsequent client-preview request
+
+The user then requested removal of the visible video pause/play controls and a GitHub Pages link to show the client. Both controls are removed. Autoplay remains muted and viewport-aware; reduced-motion, save-data and slow-connection users receive still backgrounds. The user explicitly confirmed permission to publish the current photos and both videos. `.github/workflows/pages.yml` builds and publishes only the allowlisted `dist/` website artifact; local review notes and source inputs stay outside that artifact. Earlier descriptions below record the initial React migration.
+
 ## Requested changes
 
 The user requested React/modern animation support, the supplied Club AGRI.mp4 in the hero, football.mp4 behind the packs section, and a homepage comparison against Proposition maquette club.docx. This explicit request supersedes the previous no-framework restriction. Club AGRI stays independent; no FOS-Agri files are touched.

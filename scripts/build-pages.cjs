@@ -38,7 +38,6 @@ for (const page of data.navigation) {
     '<link rel="stylesheet" href="assets/icons/css/all.min.css">\n<link rel="stylesheet" href="assets/club-styles.css?v=1">\n' +
     (homepage ? '<link rel="stylesheet" href="assets/homepage.css?v=2">\n<link rel="icon" href="data:,">\n' : '') +
     '<style>body.dialog-open{overflow:hidden}</style>\n</head>\n<body id="top" data-page="' + page.id + '">\n' + noscript +
-    (homepage ? '<noscript><style>.video-toggle{display:none}</style></noscript>\n' : '') +
     '\n<div id="site">' + content + '</div>\n' +
     (homepage ? '<script src="assets/club-react.js?v=2" defer></script>\n' : '<script src="assets/club-data.js?v=1" defer></script>\n<script src="assets/club-view.js?v=1" defer></script>\n<script src="assets/club-app.js?v=1" defer></script>\n') + '</body>\n</html>\n';
   fs.writeFileSync(path.join(root,page.file),html);

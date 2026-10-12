@@ -8,11 +8,9 @@
 .video-background video.has-frame{opacity:1}
 .hero-video-section .hero-shade{background:linear-gradient(90deg,rgba(5,24,19,.82),rgba(5,24,19,.48) 55%,rgba(5,24,19,.18))}
 [dir=rtl] .hero-video-section .hero-shade{background:linear-gradient(270deg,rgba(5,24,19,.82),rgba(5,24,19,.48) 55%,rgba(5,24,19,.18))}
-.video-toggle{position:absolute;inset-inline-start:48px;bottom:18px;display:flex;align-items:center;gap:10px;min-width:44px;min-height:44px;max-width:calc(100% - 130px);padding:10px 14px;border:1px solid #ffffff80;border-radius:6px;background:#102c24e6;color:#fff;font-size:12px;line-height:1.5;text-align:start}
-.video-toggle:hover{background:#153f32}
-.video-toggle:focus-visible,.hero-secondary:focus-visible,.hero-scroll:focus-visible{outline-color:#fff}
+.hero-secondary:focus-visible,.hero-scroll:focus-visible{outline-color:#fff}
 .hero-video-section .hero-content{padding-bottom:90px}
-.packs-video-section{background:#153f32;padding-bottom:108px}
+.packs-video-section{background:#153f32}
 .packs-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,30,23,.84),rgba(8,30,23,.56) 55%,rgba(8,30,23,.8))}
 .packs-video-section .section-heading h2,.packs-video-section .section-heading>p{color:#fff}
 .packs-video-section .eyebrow{color:#d7eee6}
@@ -30,6 +28,6 @@
 #site [id]{scroll-margin-top:calc(var(--header) + 20px)}
 .hero-scroll{inset-inline-end:48px}
 .gallery-photo img{height:auto;aspect-ratio:1.05;object-fit:cover}
-@media(max-width:900px){.video-toggle{inset-inline-start:24px}.hero-scroll{inset-inline-end:24px}.history-timeline{gap:12px}.history-timeline span{font-size:11px}}
-@media(max-width:600px){.video-toggle{inset-inline-start:18px;bottom:16px;font-size:10px;padding:9px 11px;max-width:calc(100% - 114px)}.hero-scroll{inset-inline-end:18px}.hero-video-section .hero-content{padding-bottom:86px}.hero-video-section{min-height:510px}.packs-video-section{padding-bottom:92px}.history-timeline{gap:12px}.history-timeline span{font-size:11px}.gallery-caption{font-size:11px}.gallery-photo img{aspect-ratio:1}.schools-cta{font-size:12px}html[lang=ar] .video-toggle{font-size:14px}html[lang=ar] .history-timeline span{font-size:15px}html[lang=zgh] .video-toggle{font-size:10px}}
+@media(max-width:900px){.hero-scroll{inset-inline-end:24px}.history-timeline{gap:12px}.history-timeline span{font-size:11px}}
+@media(max-width:600px){.hero-scroll{inset-inline-end:18px}.hero-video-section .hero-content{padding-bottom:86px}.hero-video-section{min-height:510px}.history-timeline{gap:12px}.history-timeline span{font-size:11px}.gallery-caption{font-size:11px}.gallery-photo img{aspect-ratio:1}.schools-cta{font-size:12px}html[lang=ar] .history-timeline span{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.video-background video{transition:none}.pack-card,.gallery-photo img{transition:none}.pack-card:hover,.gallery-photo:hover img{transform:none}}

@@ -4,3 +4,4 @@ qa/
 node_modules/
 .playwright-cli/
 output/
+dist/

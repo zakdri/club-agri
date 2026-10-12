@@ -1,5 +1,9 @@
 # Verification — 2026-10-10
 
+## GitHub client preview and removal of controls — 2026-10-12
+
+Visible pause/play controls removed at the user's request. Current checks pass in FR/AR/ZGH at 390 and 1440 px: no video controls, muted looping inline playback for both sections, no overflow, reduced-motion still fallback, no JavaScript errors, and nine secondary routes with no editorial content and retained noindex. The GitHub Pages artifact is allowlisted to ten generated HTML pages and required assets; project notes, raw input files and QA are excluded. Earlier manual-control checks below describe the superseded UI.
+
 ## React homepage update — 2026-10-12
 
 - React 19.3 homepage build with complete prerendered HTML passes. npm dependency audit reports no vulnerabilities.

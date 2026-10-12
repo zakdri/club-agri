@@ -1,5 +1,9 @@
 # Media provenance
 
+## Client preview publication approval
+
+On 2026-10-12, the user explicitly confirmed permission to publish the current photos and both videos and requested a GitHub Pages link for client review. This records the user's permission confirmation; translations and homepage content remain review drafts.
+
 ## User-supplied video, 2026-10-12
 
 | Local delivery file | User-supplied source | Use |
