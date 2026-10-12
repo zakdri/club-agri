@@ -20,6 +20,6 @@ No tariffs, individual pack benefits, actual events, PDFs, registration or preci
 - Pack advantages, eligibility, fees and actual PDF documents.
 - Exact Club address, contact details, opening times, social links and legal information.
 - French copy and professional Arabic/Amazigh linguistic review.
-- Video, if a real Club video is supplied.
+- Public use rights and Club authenticity of the two supplied videos (integrated in the hero and packs section on 2026-10-12).
 
 All pages remain noindex. Stop after this preview until homepage approval. No link is added to the FOS-Agri site yet.

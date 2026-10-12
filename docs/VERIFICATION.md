@@ -1,5 +1,19 @@
 # Verification — 2026-10-10
 
+## React homepage update — 2026-10-12
+
+- React 19.3 homepage build with complete prerendered HTML passes. npm dependency audit reports no vulnerabilities.
+- FR/AR/ZGH at 360, 390, 768 and 1440 px: no horizontal overflow or clipped visible headings, text or controls. All visible interactive targets meet 44px with a 0.01px browser rounding tolerance. Fixed homepage logo height and a short Amazigh desktop-navigation link width.
+- Three-language interactions pass: five filters, six/fourteen activity expansion, pack selection/clear, ten-link translated menu, Escape dismissal/focus restoration, gallery keyboard navigation and RTL arrow order.
+- Both supplied videos decode and play in Chromium. Pause/restart, off-screen pause, inline muted playback and translated labels pass in all languages. Numeric statistics/timeline remain LTR-isolated in Arabic.
+- Reduced-motion reload: no video source is requested automatically and no animation runs. Save-data fallback and explicit playback override pass.
+- HTTP MP4 byte ranges return 206 with the correct content type and length; invalid ranges return 416.
+- JavaScript disabled at 390px: complete statistics, three timeline entries, all fourteen activities, photo backgrounds and no overflow. Direct-file HTML works with and without JavaScript; React language switching works from file access.
+- Fresh browser checks record no JavaScript exceptions, hydration errors or missing media. The local favicon request is suppressed on the homepage.
+- Nine secondary HTML pages have no Git content diff and retain their noindex/title-only scope.
+
+Checks and current screenshots are local in ignored qa/ and output/playwright/. Original DOCX/MP4 inputs are unchanged. Native-browser tests do not constitute professional Arabic/Amazigh review or confirmation of publication rights. The earlier checks below describe the pre-migration implementation.
+
 ## Automated browser checks
 
 Bundled Playwright/Chromium was used without installing project dependencies.

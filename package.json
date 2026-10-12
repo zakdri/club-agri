@@ -1,0 +1,17 @@
+{
+  "name": "club-agri",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-pages.cjs",
+    "preview": "node scripts/serve.cjs 4180",
+    "start": "npm run build && npm run preview"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

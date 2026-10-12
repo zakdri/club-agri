@@ -8,7 +8,7 @@ Phase 1 contains a complete homepage for design/content review and nine secondar
 
 ## Technology
 
-Plain HTML, CSS and JavaScript. No dependencies, framework, backend, database, registration, payment or booking system. Relative paths support GitHub Pages subdirectory hosting and opening index.html directly.
+The homepage migrated to React 19.3 at the user's explicit request on 2026-10-12. React and React DOM provide shared components, state and hydration; esbuild compiles JSX at build time. The output remains static, with no backend, database, registration, payment or booking system. Relative paths support GitHub Pages subdirectory hosting and opening index.html directly. No runtime CDN is required.
 
 ## Files
 
@@ -24,11 +24,19 @@ galerie.html                Empty secondary page
 reglements.html             Empty secondary page
 adhesion.html               Empty secondary page
 assets/club-data.js          Shared IDs, FR/AR/ZGH content, activity metadata
-assets/club-view.js          Shared pure HTML renderer; runs in Node and browser
-assets/club-app.js           Language, dialogs, filters, pack selection, scrolling
+src/club.jsx                React homepage and reusable header/footer/page shell
+src/language.jsx            Shared translation context and bidi-safe text
+src/motion.jsx              Accessible reveal, counter and scrolling helpers
+src/video-background.jsx    Viewport-aware, muted video and translated controls
+src/main.jsx                Hydrates the prerendered homepage
+assets/club-react.js         Generated production bundle, do not edit manually
+assets/homepage.css          Homepage-only styles, videos and timeline
+assets/videos/              Supplied hero and football background videos
+assets/club-view.js          Retained static renderer for empty secondary pages
+assets/club-app.js           Retained behavior for empty secondary pages
 assets/club-styles.css       Independent responsive visual system
 assets/images/              Local photographs, documented provenance
-scripts/build-pages.cjs     Dependency-free static HTML generation
+scripts/build-pages.cjs     React prerender, bundle and static HTML generation
 scripts/serve.cjs           Local preview only; not a production backend
 docs/CONTENT_REVIEW.md      Missing data and editorial/translation validation
 docs/MEDIA_SOURCES.md       Photo origin and publication requirements
@@ -39,7 +47,7 @@ qa/                         Local verification evidence (ignored by Git)
 
 Each item has one stable ID and explicit French, Arabic and Amazigh labels/content. There are no independent language-specific item arrays and no French translation fallback. Brand and pack names remain unchanged.
 
-The Node build generates complete French HTML, including visible homepage content, for progressive enhancement. Browser JavaScript uses the same renderer for live language switching and UI states. Images and content remain available without JavaScript; the no-script activity list includes all items.
+The Node build prerenders complete French homepage HTML from the same React component tree used in the browser. React hydrates that tree and updates language/UI state without replacing the page or restarting video elements on language changes. Images, timeline, statistics and all 14 activities remain available without JavaScript. Secondary pages still use the retained static renderer; their generated files have no editorial changes.
 
 Menu routes, filters, packs, schools and media come from the shared data file. Edit source files, then run `node scripts/build-pages.cjs`; do not hand-edit generated HTML.
 
@@ -51,7 +59,7 @@ Use native dialog elements for menu/gallery, visible keyboard focus, minimum 44p
 
 ## Visual direction
 
-White backgrounds, deep green for FOS-Agri filiation, teal for primary actions, coral and pale green as secondary accents. Typography uses Poppins, Tajawal and Noto Sans Tifinagh stored locally. Hero uses an authentic entrance photo; no unofficial Club emblem is invented.
+White backgrounds, deep green for FOS-Agri filiation, teal for primary actions, coral and pale green as secondary accents. Typography uses Poppins, Tajawal and Noto Sans Tifinagh stored locally. Hero and packs use user-supplied video with dark overlays for readable text; the entrance photograph is the hero fallback. No unofficial Club emblem is invented. Homepage effects use native browser animations with reduced-motion support.
 
 ## Approval and publication
 
@@ -59,7 +67,9 @@ All pages are noindex during review. No public deployment, no external registrat
 
 ## Commands
 
-`node scripts/build-pages.cjs` generates the ten pages.
+`npm ci` installs the three approved packages using the lockfile.
+
+`node scripts/build-pages.cjs` generates the ten pages and bundles the React homepage. `npm run build` invokes it.
 
 `node scripts/serve.cjs 4180` starts an optional localhost preview. The site also opens directly using index.html; no server is necessary for normal use.
 

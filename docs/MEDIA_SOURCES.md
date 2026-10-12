@@ -1,5 +1,17 @@
 # Media provenance
 
+## User-supplied video, 2026-10-12
+
+| Local delivery file | User-supplied source | Use |
+| --- | --- | --- |
+| assets/videos/club-agri.mp4 | D:\Club Agri\Club AGRI.mp4 | Hero background |
+| assets/videos/football.mp4 | D:\Club Agri\football.mp4 | Packs background |
+| assets/images/football-poster.jpg | Frame at 2 seconds from football.mp4 | Packs still-image fallback |
+
+The user explicitly supplied these clips and requested these placements. The originals remain untouched. The football clip shows children playing in a street; it is used as a lifestyle background, not labeled as footage of the Club's facilities or schools. The identity of all locations and public publication rights for both clips have not been independently verified. Confirm those rights and permissions for recognizable people before public publication. Background videos are decorative, muted and have no audio-dependent content.
+
+## Review photography
+
 Local review photography comes from A+E Magazine's article about the renovation of the actual Club de l'Agriculture in Rabat:
 
 https://aemagazine.ma/reamenagement-du-projet-club-dagriculture-a-rabat-aziza-lahrech-architecte/

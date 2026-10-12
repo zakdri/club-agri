@@ -4,7 +4,7 @@ Read README.md, ARCHITECTURE.md, docs/CONTENT_REVIEW.md and docs/MEDIA_SOURCES.m
 
 Keep the project independent at D:\Club Agri. Never edit FOS-Agri as part of this project. Its eventual button link is a separate task after Club completion.
 
-Use static HTML/CSS/JavaScript only. Do not add dependencies, backend, database, authentication, payments or booking. Keep relative GitHub Pages-compatible paths.
+Use React for the homepage and shared future components, as explicitly requested on 2026-10-12. Keep the output static HTML/CSS/JavaScript with relative GitHub Pages-compatible paths. React, React DOM and esbuild are the approved dependencies. Do not add a backend, database, authentication, payments or booking.
 
 Build only the homepage. The nine secondary pages retain their header, translated title and footer with no editorial content until explicit homepage approval.
 
