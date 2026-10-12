@@ -1,5 +1,9 @@
 # Verification — 2026-10-10
 
+## React shared shells on all ten routes — 2026-10-12
+
+Every page now prerenders and hydrates through ClubApp and the same React bundle. Nine secondary routes checked in FR/AR/ZGH at 390 and 1440 px (54 layouts): translated title only in main, no editorial sections/articles/forms, no overflow, correct direction, persisted language, and retained noindex. Menu checks pass for ten entries, active-route state, Escape dismissal and focus return. No JavaScript/hydration errors. The legacy string renderer and vanilla script are absent from generated page references and fresh deployment artifacts. Homepage videos and video-only hero are retained. `.html` entry files are generated static hosting output; implementation source is JSX in src/.
+
 ## Continuous video backgrounds — 2026-10-12
 
 The user reported a hero photo instead of video and requested continuous playback for both clips. Removed the background photos/posters and viewport, data-saving, slow-connection and reduced-motion video gates. Both videos now have direct src, autoplay, muted, loop, playsinline and preload=auto attributes. Browser checks pass in FR/AR/ZGH at 390 and 1440 px: both videos advance while scrolling, including off-screen, preserve their nodes on language changes, and actually restart at the end of their loops. No photos or video controls remain in either background. Combined reduced-motion/save-data/2g emulation no longer stops video; section animations still honor reduced motion. Without JavaScript, native video attributes and complete homepage content remain, and the hero autoplays. Browsers may defer off-screen native autoplay without JavaScript or suspend hidden tabs. No overflow or JavaScript errors recorded. Asset cache versions incremented to v3; secondary HTML files have no content diff. Earlier sections describe superseded behavior.

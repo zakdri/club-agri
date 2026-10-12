@@ -8,7 +8,7 @@ Phase 1 contains a complete homepage for design/content review and nine secondar
 
 ## Technology
 
-The homepage migrated to React 19.3 at the user's explicit request on 2026-10-12. React and React DOM provide shared components, state and hydration; esbuild compiles JSX at build time. The output remains static, with no backend, database, registration, payment or booking system. Relative paths support GitHub Pages subdirectory hosting and opening index.html directly. No runtime CDN is required.
+All ten pages use React 19.3 following the user's migration request on 2026-10-12. React and React DOM provide shared components, state and hydration; esbuild compiles JSX at build time. HTML files are prerendered build output, not hand-authored page implementations. The output remains static, with no backend, database, registration, payment or booking system. Relative paths support GitHub Pages subdirectory hosting and opening index.html directly. No runtime CDN is required.
 
 ## Files
 
@@ -25,15 +25,16 @@ reglements.html             Empty secondary page
 adhesion.html               Empty secondary page
 assets/club-data.js          Shared IDs, FR/AR/ZGH content, activity metadata
 src/club.jsx                React homepage and reusable header/footer/page shell
+src/pages/empty-page.jsx    Shared React title-only secondary page
 src/language.jsx            Shared translation context and bidi-safe text
 src/motion.jsx              Accessible reveal, counter and scrolling helpers
 src/video-background.jsx    Direct muted autoplay/loop video without images or controls
-src/main.jsx                Hydrates the prerendered homepage
+src/main.jsx                Hydrates every prerendered React page using its stable ID
 assets/club-react.js         Generated production bundle, do not edit manually
 assets/homepage.css          Homepage-only styles, videos and timeline
 assets/videos/              Supplied hero and football background videos
-assets/club-view.js          Retained static renderer for empty secondary pages
-assets/club-app.js           Retained behavior for empty secondary pages
+assets/club-view.js          Retired reference renderer, not built or deployed
+assets/club-app.js           Retired reference behavior, not built or deployed
 assets/club-styles.css       Independent responsive visual system
 assets/images/              Local photographs, documented provenance
 scripts/build-pages.cjs     React prerender, bundle and static HTML generation
@@ -47,7 +48,7 @@ qa/                         Local verification evidence (ignored by Git)
 
 Each item has one stable ID and explicit French, Arabic and Amazigh labels/content. There are no independent language-specific item arrays and no French translation fallback. Brand and pack names remain unchanged.
 
-The Node build prerenders complete French homepage HTML from the same React component tree used in the browser. React hydrates that tree and updates language/UI state without replacing the page or restarting video elements on language changes. Images, timeline, statistics and all 14 activities remain available without JavaScript. Secondary pages still use the retained static renderer; their generated files have no editorial changes.
+The Node build prerenders complete French HTML for every route from the same React component tree used in the browser. React hydrates that tree and updates language/UI state without replacing the page or restarting video elements on language changes. Images, timeline, statistics and all 14 activities remain available without JavaScript on the homepage. The nine secondary pages use EmptyPage, which renders only a translated title between the shared header/footer. Their editorial scope is unchanged.
 
 Menu routes, filters, packs, schools and media come from the shared data file. Edit source files, then run `node scripts/build-pages.cjs`; do not hand-edit generated HTML.
 

@@ -1,5 +1,9 @@
 # Homepage update 2026-10-12
 
+## React on every route
+
+Following the user's observation that pages were still HTML, the nine empty secondary shells now prerender and hydrate through the same React application as the homepage. EmptyPage is an explicit JSX component with a translated title only. Header, Footer, navigation dialog and language context are shared across all ten routes. The `.html` filenames remain as generated static entry points compatible with GitHub Pages; changing their extension does not make a site more or less React. The old string renderer and event-driven vanilla script are no longer used by the build or included in fresh deployment artifacts. No secondary editorial content is created. Earlier entries describe the migration stages.
+
 ## Continuous video playback correction
 
 After reporting a hero still image and paused packs clip, the user explicitly requested video-only backgrounds and continuous playback for both clips. Removed the background img/poster elements and all viewport, connection and reduced-motion video gates. Both video tags now include direct src, autoplay, muted, loop, playsinline and preload attributes in the prerendered HTML. Native playback works without JavaScript; React adds retries on media readiness, returning to the tab, or visitor gestures if autoplay is blocked. Language changes preserve the same video nodes. Site CSS/bundle versions were bumped to avoid retaining the previous playback code in caches. Browser autoplay restrictions and hidden-tab suspension remain outside website control. Earlier entries below describe superseded implementations.

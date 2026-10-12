@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { data, LanguageProvider, T, Text, useLanguage } from './language.jsx';
 import { Counter, scrollToSection, useMotion } from './motion.jsx';
 import { VideoBackground } from './video-background.jsx';
+import { EmptyPage } from './pages/empty-page.jsx';
 
 const Icon = ({ name = 'fa-arrow-right' }) => <i className={`fa-solid ${name}`} aria-hidden="true" />;
 const Image = ({ item, ...props }) => { const { tr } = useLanguage(); return <img src={`assets/images/${item.file}`} alt={tr(item.title)} width="1024" height="768" loading="lazy" decoding="async" {...props} />; };
@@ -96,7 +97,7 @@ function PageShell({ page }) {
   const item = data.gallery[galleryIndex];
   return <div ref={root} onClick={anchorClick}>
     <Header page={page} openMenu={() => openDialog(menu)} />
-    {page === 'home' ? <Homepage selectPack={selectPack} selectedPack={selectedPack} openGallery={(index, trigger) => { setGalleryIndex(index); openDialog(gallery, trigger); }} /> : <main id="main" className="empty-page"><div className="container"><h1>{tr(data.navigation.find(n => n.id === page).label)}</h1></div></main>}
+    {page === 'home' ? <Homepage selectPack={selectPack} selectedPack={selectedPack} openGallery={(index, trigger) => { setGalleryIndex(index); openDialog(gallery, trigger); }} /> : <EmptyPage page={page} />}
     <Footer />
     <dialog id="navigation-dialog" className="menu-dialog" ref={menu} aria-labelledby="menu-title" onClose={closeDialog} onClick={backdropClick}><div className="menu-heading"><h2 id="menu-title" dir="ltr">Club AGRI</h2><button className="icon-button" onClick={() => menu.current.close()} aria-label={t('close')}><Icon name="fa-xmark" /></button></div><nav aria-label={t('navigation')}>{data.navigation.map((n, index) => <a key={n.id} data-nav-id={n.id} href={n.file} aria-current={page === n.id ? 'page' : undefined}><span className="menu-number"><bdi dir="ltr">{String(index + 1).padStart(2, '0')}</bdi></span>{tr(n.label)}<Icon /></a>)}</nav></dialog>
     {page === 'home' && <dialog className="gallery-dialog" id="gallery-dialog" ref={gallery} aria-label={t('galleryTitle')} onClose={closeDialog} onClick={backdropClick} onKeyDown={event => { if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return; event.preventDefault(); nextImage((event.key === 'ArrowRight' ? 1 : -1) * (language === 'ar' ? -1 : 1)); }}><button className="icon-button gallery-close" onClick={() => gallery.current.close()} aria-label={t('close')}><Icon name="fa-xmark" /></button><figure><Image item={item} id="lightbox-image" loading="eager" /><figcaption id="lightbox-caption">{tr(item.title)}</figcaption></figure><div className="gallery-controls"><button className="icon-button" onClick={() => nextImage(-1)} aria-label={t('previous')}><Icon name="fa-arrow-left" /></button><span id="gallery-position" dir="ltr" aria-live="polite">{galleryIndex + 1} / {data.gallery.length}</span><button className="icon-button" onClick={() => nextImage(1)} aria-label={t('next')}><Icon /></button></div></dialog>}
