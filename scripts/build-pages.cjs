@@ -36,10 +36,10 @@ for (const page of data.navigation) {
     '<meta name="description" content="' + view.tr(data.text.description,'fr') + '">\n' +
     '<meta name="theme-color" content="#153f32">\n<link rel="preload" href="assets/fonts/poppins.ttf" as="font" type="font/ttf" crossorigin>\n' +
     '<link rel="stylesheet" href="assets/icons/css/all.min.css">\n<link rel="stylesheet" href="assets/club-styles.css?v=1">\n' +
-    (homepage ? '<link rel="stylesheet" href="assets/homepage.css?v=2">\n<link rel="icon" href="data:,">\n' : '') +
+    (homepage ? '<link rel="stylesheet" href="assets/homepage.css?v=3">\n<link rel="icon" href="data:,">\n' : '') +
     '<style>body.dialog-open{overflow:hidden}</style>\n</head>\n<body id="top" data-page="' + page.id + '">\n' + noscript +
     '\n<div id="site">' + content + '</div>\n' +
-    (homepage ? '<script src="assets/club-react.js?v=2" defer></script>\n' : '<script src="assets/club-data.js?v=1" defer></script>\n<script src="assets/club-view.js?v=1" defer></script>\n<script src="assets/club-app.js?v=1" defer></script>\n') + '</body>\n</html>\n';
+    (homepage ? '<script src="assets/club-react.js?v=3" defer></script>\n' : '<script src="assets/club-data.js?v=1" defer></script>\n<script src="assets/club-view.js?v=1" defer></script>\n<script src="assets/club-app.js?v=1" defer></script>\n') + '</body>\n</html>\n';
   fs.writeFileSync(path.join(root,page.file),html);
 }
 console.log('Built ' + data.navigation.length + ' static pages. Only the homepage has editorial content.');

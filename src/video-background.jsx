@@ -1,38 +1,36 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-export function VideoBackground({ id, file, poster }) {
+export function VideoBackground({ id, file }) {
   const video = useRef(null);
-  const [hasFrame, setHasFrame] = useState(false);
-  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     const node = video.current;
-    const preference = matchMedia('(prefers-reduced-motion: reduce)');
-    const connection = navigator.connection;
-    let visible = false;
-    const load = () => {
-      if (!node.getAttribute('src')) { node.src = file; node.load(); }
-    };
-    const sync = () => {
-      const blocked = preference.matches || connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
-      if (!visible || document.hidden || blocked || failed) { node.pause(); return; }
-      load();
+    // Keep both videos running across scrolling and language changes.
+    // Native autoplay also works before hydration and without JavaScript.
+    const play = () => {
+      if (document.hidden || node.error) return;
       node.muted = true;
+      node.defaultMuted = true;
       const attempt = node.play();
-      attempt?.catch(() => { /* Keep the still-image fallback if autoplay is blocked. */ });
+      attempt?.catch(() => { /* Retry on canplay or the first visitor gesture. */ });
     };
-    const observer = new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }, { threshold: .05 });
-    observer.observe(node.parentElement);
-    const motionChanged = () => sync();
-    preference.addEventListener('change', motionChanged);
-    connection?.addEventListener('change', sync);
-    document.addEventListener('visibilitychange', sync);
-    return () => { observer.disconnect(); node.pause(); preference.removeEventListener('change', motionChanged); connection?.removeEventListener('change', sync); document.removeEventListener('visibilitychange', sync); };
-  }, [file, failed]);
+    const resume = () => { if (node.paused) play(); };
+    node.addEventListener('loadeddata', play);
+    node.addEventListener('canplay', play);
+    document.addEventListener('visibilitychange', resume);
+    document.addEventListener('pointerdown', resume, { passive: true });
+    document.addEventListener('keydown', resume);
+    play();
+    return () => {
+      node.removeEventListener('loadeddata', play);
+      node.removeEventListener('canplay', play);
+      document.removeEventListener('visibilitychange', resume);
+      document.removeEventListener('pointerdown', resume);
+      document.removeEventListener('keydown', resume);
+    };
+  }, [file]);
 
   return <div className="video-background" aria-hidden="true">
-      <img className="video-poster" src={poster} alt="" width="1280" height="720" fetchPriority={id === 'hero-video' ? 'high' : 'auto'} loading={id === 'hero-video' ? 'eager' : 'lazy'} />
-      <video id={id} ref={video} className={hasFrame && !failed ? 'has-frame' : ''} poster={poster} muted loop playsInline preload="none" tabIndex={-1}
-        onLoadedData={() => setHasFrame(true)} onError={() => setFailed(true)} />
+      <video id={id} ref={video} src={file} autoPlay muted loop playsInline preload="auto" tabIndex={-1} />
     </div>;
 }

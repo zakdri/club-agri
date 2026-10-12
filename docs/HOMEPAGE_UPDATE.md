@@ -1,5 +1,9 @@
 # Homepage update 2026-10-12
 
+## Continuous video playback correction
+
+After reporting a hero still image and paused packs clip, the user explicitly requested video-only backgrounds and continuous playback for both clips. Removed the background img/poster elements and all viewport, connection and reduced-motion video gates. Both video tags now include direct src, autoplay, muted, loop, playsinline and preload attributes in the prerendered HTML. Native playback works without JavaScript; React adds retries on media readiness, returning to the tab, or visitor gestures if autoplay is blocked. Language changes preserve the same video nodes. Site CSS/bundle versions were bumped to avoid retaining the previous playback code in caches. Browser autoplay restrictions and hidden-tab suspension remain outside website control. Earlier entries below describe superseded implementations.
+
 ## Subsequent client-preview request
 
 The user then requested removal of the visible video pause/play controls and a GitHub Pages link to show the client. Both controls are removed. Autoplay remains muted and viewport-aware; reduced-motion, save-data and slow-connection users receive still backgrounds. The user explicitly confirmed permission to publish the current photos and both videos. `.github/workflows/pages.yml` builds and publishes only the allowlisted `dist/` website artifact; local review notes and source inputs stay outside that artifact. Earlier descriptions below record the initial React migration.

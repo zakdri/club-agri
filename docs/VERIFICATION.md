@@ -1,5 +1,9 @@
 # Verification — 2026-10-10
 
+## Continuous video backgrounds — 2026-10-12
+
+The user reported a hero photo instead of video and requested continuous playback for both clips. Removed the background photos/posters and viewport, data-saving, slow-connection and reduced-motion video gates. Both videos now have direct src, autoplay, muted, loop, playsinline and preload=auto attributes. Browser checks pass in FR/AR/ZGH at 390 and 1440 px: both videos advance while scrolling, including off-screen, preserve their nodes on language changes, and actually restart at the end of their loops. No photos or video controls remain in either background. Combined reduced-motion/save-data/2g emulation no longer stops video; section animations still honor reduced motion. Without JavaScript, native video attributes and complete homepage content remain, and the hero autoplays. Browsers may defer off-screen native autoplay without JavaScript or suspend hidden tabs. No overflow or JavaScript errors recorded. Asset cache versions incremented to v3; secondary HTML files have no content diff. Earlier sections describe superseded behavior.
+
 ## GitHub client preview and removal of controls — 2026-10-12
 
 Visible pause/play controls removed at the user's request. Current checks pass in FR/AR/ZGH at 390 and 1440 px: no video controls, muted looping inline playback for both sections, no overflow, reduced-motion still fallback, no JavaScript errors, and nine secondary routes with no editorial content and retained noindex. The GitHub Pages artifact is allowlisted to ten generated HTML pages and required assets; project notes, raw input files and QA are excluded. Earlier manual-control checks below describe the superseded UI.

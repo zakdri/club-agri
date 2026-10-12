@@ -52,7 +52,7 @@ function Homepage({ selectPack, selectedPack, openGallery }) {
   const pack = data.packs.find(item => item.id === selectedPack);
   return <main id="main">
     <section className="hero hero-video-section" aria-labelledby="hero-title">
-      <VideoBackground id="hero-video" file="assets/videos/club-agri.mp4" poster="assets/images/club-entrance.jpg" label="heroVideo" />
+      <VideoBackground id="hero-video" file="assets/videos/club-agri.mp4" />
       <div className="hero-shade" /><div className="container hero-content" data-reveal><span className="hero-kicker"><T id="heroKicker" /></span><h1 id="hero-title" dir="ltr">Club AGRI</h1><h2 className="hero-heading"><T id="heroTitle" /></h2><p><T id="heroIntro" /></p><div className="hero-actions"><a className="button button-light" href="#le-club"><T id="explore" /><Icon /></a><a className="hero-secondary" href="#adhesion"><T id="join" /><Icon /></a></div></div><a className="hero-scroll" href="#le-club"><T id="scroll" /><Icon name="fa-arrow-down" /></a>
     </section>
     <section className="stats-band"><div className="container stats-grid">{data.stats.map((item, index) => <div className="stat" key={index}><Counter value={item.value} /><div><span>{tr(item.unit)}</span><p>{tr(item.label)}</p></div></div>)}</div></section>
@@ -61,7 +61,7 @@ function Homepage({ selectPack, selectedPack, openGallery }) {
     </div><figure className="about-photo" data-reveal><Image item={data.gallery[1]} /><figcaption><Icon name="fa-water" /><T id="poolCaption" /></figcaption></figure></div></section>
     <Activities />
     <section className="section packs-section packs-video-section" id="packs">
-      <VideoBackground id="packs-video" file="assets/videos/football.mp4" poster="assets/images/football-poster.jpg" label="packsVideo" />
+      <VideoBackground id="packs-video" file="assets/videos/football.mp4" />
       <div className="packs-shade" /><div className="container"><SectionHeading prefix="packs" /><div className="pack-grid">{data.packs.map((item, index) => <article key={item.id} className={`pack-card pack-${item.color}`} data-reveal data-delay={index * 80}><div className="pack-visual"><span className="pack-index"><bdi dir="ltr">{String(index + 1).padStart(2, '0')}</bdi></span><Icon name={item.icon} /></div><div className="pack-content"><span className="pack-label"><T id="packLabel" /></span><h3 dir="ltr">{item.name}</h3><a className="pack-action" data-select-pack={item.id} href="#adhesion" aria-label={`${t('packCta')} — ${item.name}`} onClick={() => selectPack(item.id)}><T id="packCta" /><Icon /></a></div></article>)}</div></div>
     </section>
     <section className="section schools-section" id="ecoles-enfants"><div className="container schools-grid"><div className="section-copy" data-reveal><Eyebrow id="schoolsKicker" /><h2><T id="schoolsTitle" /></h2><p><T id="schoolsIntro" /></p><div className="school-facts"><span><Icon name="fa-child-reaching" /><T id="age" /></span><span><Icon name="fa-calendar-days" /><T id="sessions" /></span></div><a className="text-button schools-cta" href="#informations-pratiques"><T id="schoolsCta" /><Icon /></a></div><div className="school-list">{data.schools.map((item, index) => <article key={item.id} data-reveal data-delay={index * 80}><span className="school-icon"><Icon name={item.icon} /></span><div><h3>{tr(item.title)}</h3><p>{tr(item.description)}</p></div></article>)}</div></div></section>

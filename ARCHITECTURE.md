@@ -27,7 +27,7 @@ assets/club-data.js          Shared IDs, FR/AR/ZGH content, activity metadata
 src/club.jsx                React homepage and reusable header/footer/page shell
 src/language.jsx            Shared translation context and bidi-safe text
 src/motion.jsx              Accessible reveal, counter and scrolling helpers
-src/video-background.jsx    Viewport-aware, muted video without visible controls
+src/video-background.jsx    Direct muted autoplay/loop video without images or controls
 src/main.jsx                Hydrates the prerendered homepage
 assets/club-react.js         Generated production bundle, do not edit manually
 assets/homepage.css          Homepage-only styles, videos and timeline
@@ -59,7 +59,7 @@ Use native dialog elements for menu/gallery, visible keyboard focus, minimum 44p
 
 ## Visual direction
 
-White backgrounds, deep green for FOS-Agri filiation, teal for primary actions, coral and pale green as secondary accents. Typography uses Poppins, Tajawal and Noto Sans Tifinagh stored locally. Hero and packs use user-supplied video with dark overlays for readable text; the entrance photograph is the hero fallback. No unofficial Club emblem is invented. Homepage effects use native browser animations with reduced-motion support.
+White backgrounds, deep green for FOS-Agri filiation, teal for primary actions, coral and pale green as secondary accents. Typography uses Poppins, Tajawal and Noto Sans Tifinagh stored locally. Hero and packs use user-supplied autoplaying, looping video with dark overlays for readable text. The background images and viewport/data-saving/reduced-motion video gates were removed at the user's explicit request on 2026-10-12. Section animations retain reduced-motion support. No unofficial Club emblem is invented.
 
 ## Approval and publication
 
